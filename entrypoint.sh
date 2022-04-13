@@ -16,7 +16,8 @@ else
   echo "Set the INPUT_SOURCE_BRANCH environment variable or trigger from a branch."
   exit 1
 fi
-
+#Fix for fatal: unsafe repository ('/github/workspace' is owned by someone else)
+git config --global --add safe.directory /github/workspace
 DESTINATION_BRANCH="${INPUT_DESTINATION_BRANCH:-"master"}"
 
 # Github actions no longer auto set the username and GITHUB_TOKEN
